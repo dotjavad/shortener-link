@@ -41,35 +41,6 @@ function App() {
         throw new Error();
       });
 
-
-    apiSource === 'CleanURI' && axios(
-      'https://cleanuri.com/api/v1/shorten', sendData,
-      {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'application/json',
-        },
-        withCredentials: true,
-        credentials: 'same-origin',
-      })
-      .then((response) => {
-        setData(
-          [
-            ...data,
-            {
-              title: url,
-              desc: response.data.result_url
-            }
-          ]
-        );
-      })
-      .catch(() => {
-        throw new Error();
-      });
-
-
   }
 
   return (
@@ -79,7 +50,6 @@ function App() {
           <Form onSubmit={handleSubmit} className="shorten-form">
             <Form.Item>
               <Select onChange={handleApiSource} defaultValue="CleanURI" style={{ width: '50%' }}>
-                <Option value="CleanURI">CleanURI</Option>
                 <Option value="Relink">Relink</Option>
               </Select>
               <Input onChange={handleChange} size="large" placeholder="Enter your link here" />
