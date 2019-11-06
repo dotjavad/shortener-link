@@ -49,7 +49,7 @@ function App() {
         <Card title="Shorten your link" bordered={false} style={{ width: '50%', margin: '0 auto' }}>
           <Form onSubmit={handleSubmit} className="shorten-form">
             <Form.Item>
-              <Select onChange={handleApiSource} defaultValue="CleanURI" style={{ width: '50%' }}>
+              <Select onChange={handleApiSource} defaultValue="Relink" style={{ width: '50%' }}>
                 <Option value="Relink">Relink</Option>
               </Select>
               <Input onChange={handleChange} size="large" placeholder="Enter your link here" />
