@@ -25,9 +25,8 @@ function App() {
     const sendData = {};
     sendData['url'] = url;
 
-    apiSource === 'Relink' && axios.post('/api/links/', sendData)
+    apiSource === 'Relink' && axios.post('https://cleanuri.com/api/links/', sendData)
       .then((response) => {
-        console.log(response)
         setData(
           [
             ...data,
@@ -43,7 +42,7 @@ function App() {
       });
 
 
-    apiSource === 'CleanURI' && axios.post('/api/v1/shorten', sendData)
+    apiSource === 'CleanURI' && axios.post('https://rel.ink/api/v1/shorten', sendData)
       .then((response) => {
         setData(
           [
