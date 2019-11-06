@@ -42,7 +42,18 @@ function App() {
       });
 
 
-    apiSource === 'CleanURI' && axios.post('https://cleanuri.com/api/v1/shorten', sendData)
+    apiSource === 'CleanURI' && axios(
+      'https://cleanuri.com/api/v1/shorten', sendData,
+      {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json',
+        },
+        withCredentials: true,
+        credentials: 'same-origin',
+      })
       .then((response) => {
         setData(
           [
